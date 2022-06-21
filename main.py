@@ -10,10 +10,17 @@ auth_token = "e24ecdf8af2167e03dc5e49abdaf817e"
 parameters = {
     "lat": 23.810331,
     "lon": 90.412521,
-    "appid": api_key
+    "appid": api_key,
+    "exclude": "current,minutely,daily"
 }
-respond = requests.get(OWN_API, params=parameters)
-respond.raise_for_status()
+response = requests.get(OWN_API, params=parameters)
+response.raise_for_status()
 
-data = respond.json()
-print(data["hourly"])
+data = response.json()
+print(data)
+weather_data = data["hourly"][:12]
+
+will_rain = False
+
+for hour_data in weather_data:
+    pass
