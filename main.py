@@ -9,6 +9,7 @@ parameters = {
     "appid": api_key
 }
 respond = requests.get("https://api.openweathermap.org/data/2.5/onecall", params=parameters)
+respond.raise_for_status()
 
 data = respond.json()
 print(data)
