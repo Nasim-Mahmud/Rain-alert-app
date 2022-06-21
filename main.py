@@ -12,4 +12,4 @@ respond = requests.get("https://api.openweathermap.org/data/2.5/onecall", params
 respond.raise_for_status()
 
 data = respond.json()
-print(data)
+print(data["hourly"])
