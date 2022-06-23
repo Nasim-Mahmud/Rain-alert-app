@@ -17,10 +17,9 @@ response = requests.get(OWN_API, params=parameters)
 response.raise_for_status()
 
 data = response.json()
-print(data)
-weather_data = data["hourly"][:12]
-print(weather_data)
-# will_rain = False
-#
-# for hour_data in weather_data:
-#     pass
+
+# weather_data = data["hourly"][0]["weather"][0]["id"]
+weather_slice = data["hourly"][:12]
+print(weather_slice)
+
+
