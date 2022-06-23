@@ -19,8 +19,8 @@ response.raise_for_status()
 data = response.json()
 print(data)
 weather_data = data["hourly"][:12]
-
-will_rain = False
-
-for hour_data in weather_data:
-    pass
+print(weather_data)
+# will_rain = False
+#
+# for hour_data in weather_data:
+#     pass
