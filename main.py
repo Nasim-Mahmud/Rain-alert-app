@@ -31,3 +31,9 @@ for hour_data in weather_slice:
 
 if will_rain:
     client = Client(account_sid, auth_token)
+    message = client.messages \
+        .create(
+        body="It may rain today! Bring an umbrella.",
+        from_='+15017122661',
+        to='+15558675310'
+    )
