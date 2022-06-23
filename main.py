@@ -8,10 +8,10 @@ account_sid = "[ACCOUNT SID FROM TWILIO]"
 auth_token = "[AUTH TOKEN FROM TWILIO]"
 
 parameters = {
-    "lat": 23.810331,
-    "lon": 90.412521,
+    "lat": 93.810331,                       #LATITUDE OF YOUR CURRENT POSITION
+    "lon": 20.412521,                       #LATITUDE OF YOUR CURRENT POSITION
     "appid": api_key,
-    "exclude": "current,minutely,daily"
+    "exclude": "current,minutely,daily"     #EXCLUDING THE DATA WE DON'T NEED
 }
 response = requests.get(OWN_API, params=parameters)
 response.raise_for_status()
