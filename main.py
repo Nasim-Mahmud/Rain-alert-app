@@ -22,4 +22,12 @@ data = response.json()
 weather_slice = data["hourly"][:12]
 print(weather_slice)
 
+will_rain = False
 
+for hour_data in weather_slice:
+    condition_code = hour_data["weather"][0]["id"]
+    if int(condition_code) < 700:
+        will_rain = True
+
+if will_rain:
+    print("Bring an umbrella.")
