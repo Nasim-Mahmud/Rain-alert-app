@@ -20,7 +20,7 @@ data = response.json()
 
 # weather_data = data["hourly"][0]["weather"][0]["id"]
 weather_slice = data["hourly"][:12]
-print(weather_slice)
+# print(weather_slice)
 
 will_rain = False
 
