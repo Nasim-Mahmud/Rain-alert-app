@@ -1,14 +1,17 @@
 import requests
 from twilio.rest import Client
 
-api_key = "46ed3d081d09cf1a51799cc559841c55"                #API from OpenWeather
+# API from OpenWeather
+api_key = "[OPENWEATHER_API_]"
 OWN_API = "https://api.openweathermap.org/data/2.5/onecall"
-account_sid = "ACc65f7f168ddb0c92bbc38453d0e57978"
-auth_token = "68fd64c1a02cd127eb265aa42cf3dcbb"
+
+# API from TWILIO
+account_sid = "[TWILIO_ACC_SID_]"
+auth_token = "[AUTH_TOKEN_]"
 
 parameters = {
-    "lat": 23.810331,  # LATITUDE OF YOUR CURRENT POSITION
-    "lon": 90.412521,  # LATITUDE OF YOUR CURRENT POSITION
+    "lat": 93.810331,  # LATITUDE OF YOUR CURRENT POSITION
+    "lon": 20.412521,  # LATITUDE OF YOUR CURRENT POSITION
     "appid": api_key,
     "exclude": "current,minutely,daily"  # EXCLUDING THE DATA WE DON'T NEED
 }
@@ -33,7 +36,7 @@ if will_rain:
     message = client.messages \
         .create(
         body="It may rain today! Bring an umbrella.",
-        from_="+19783893832",  # Got the number from Twilio.
-        to="+8801884331851"
+        from_="[TWILIO_PROVIDED_NUMBER]",  # Got the number from Twilio.
+        to="[PHONE_NUMBER_YOU_REGISTERED_WHILE_CREATING_TWILIO_ACCOUNT]"
     )
     print(message.status)
