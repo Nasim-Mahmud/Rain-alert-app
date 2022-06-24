@@ -1,14 +1,14 @@
 import requests
 from twilio.rest import Client
 
-api_key = "[API KEY FROM OPENWEATHER]"
+api_key = "46ed3d081d09cf1a51799cc559841c55"
 OWN_API = "https://api.openweathermap.org/data/2.5/onecall"
-account_sid = "[ACCOUNT SID FROM TWILIO]"
-auth_token = "[AUTH TOKEN FROM TWILIO]"
+account_sid = "ACc65f7f168ddb0c92bbc38453d0e57978"
+auth_token = "68fd64c1a02cd127eb265aa42cf3dcbb"
 
 parameters = {
-    "lat": 93.810331,  # LATITUDE OF YOUR CURRENT POSITION
-    "lon": 20.412521,  # LATITUDE OF YOUR CURRENT POSITION
+    "lat": 23.810331,  # LATITUDE OF YOUR CURRENT POSITION
+    "lon": 90.412521,  # LATITUDE OF YOUR CURRENT POSITION
     "appid": api_key,
     "exclude": "current,minutely,daily"  # EXCLUDING THE DATA WE DON'T NEED
 }
@@ -18,7 +18,7 @@ response.raise_for_status()
 data = response.json()
 
 # weather_data = data["hourly"][0]["weather"][0]["id"]
-weather_slice = data["hourly"][:12]  # RETRIEVING THE DATA OF FIRST TWELVE HOURS
+weather_slice = data["hourly"][:24]  # RETRIEVING THE DATA OF FIRST TWELVE HOURS
 # print(weather_slice)
 
 will_rain = False
@@ -33,7 +33,7 @@ if will_rain:
     message = client.messages \
         .create(
         body="It may rain today! Bring an umbrella.",
-        from_="TWILIO TRIAL PHONE NUMBER",  # Got the number from Twilio.
-        to="THE PHONE NUMBER YOU USED TO SIGNUP TWILIO"
+        from_="+19783893832",  # Got the number from Twilio.
+        to="+8801884331851"
     )
     print(message.status)
